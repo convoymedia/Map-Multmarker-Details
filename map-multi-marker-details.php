@@ -46,7 +46,7 @@
                     $m = $wpdb->get_results( "SELECT * FROM wp_mapmarker_option WHERE map_id = '" . trim($map) . "'", ARRAY_A );
                     if ($m) {
                         ?>
-                        <div id="map-holder-<?php echo $m[0]['map_id']; ?>" class="map-holder-<?php echo strtolower($m['map_name']); ?>">
+                        <div id="map-holder-<?php echo $m[0]['map_id']; ?>" class="map-holder" data-id="<?php echo $m[0]['map_id']; ?>" data-name="<?php echo $m[0]['map_name']; ?>">
                             <?php 
                                 echo do_shortcode('[map-multi-marker id="' . $m[0]['map_id'] . '"]'); 
                                 $pins = $wpdb->get_results( "SELECT * FROM wp_mapmarker_marker WHERE marker_id = '" . $m[0]['map_id'] . "'", ARRAY_A );
